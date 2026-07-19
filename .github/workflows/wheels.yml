@@ -50,7 +50,7 @@ jobs:
 
       # Python依赖
       - name: Install build dependencies
-        run: pip install Pillow Cython setuptools wheel mypy requests py2pydso==1.2.3 -i https://pypi.org/simple
+        run: pip install Pillow Cython setuptools wheel mypy requests py2pydso==1.2.3 -i https://pypi.org/simple -U
 
       # 执行自研构建脚本 --keep-tmp 异常时保留临时目录
       - name: Build protected wheel (keep tmp for debug)
