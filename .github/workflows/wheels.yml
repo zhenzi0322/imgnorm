@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout main repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Clone Codeup private repo
         run: |
@@ -32,7 +32,7 @@ jobs:
           ls ./
 
       - name: Setup Python ${{ matrix.python }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
 
@@ -108,14 +108,14 @@ jobs:
       # 失败上传调试包
       - name: Upload debug artifact on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: debug-wheel-fail-cp${{ matrix.python }}-${{ matrix.os }}
           path: wheelhouse/
 
       # 上传产物
       - name: Upload built wheel artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: wheel-cp${{ matrix.python }}-${{ matrix.os }}
           path: wheelhouse/*.whl
